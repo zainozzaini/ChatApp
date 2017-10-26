@@ -28,7 +28,6 @@ export default class ChatView extends Component {
       roomId:this.props.navigation.state.params.roomId,
       token:this.props.navigation.state.params.token,
       username:'',
-      isNotYetJoin:false
     }
 
     this.socket = SocketIOClient(ioServerURL);
@@ -134,10 +133,9 @@ export default class ChatView extends Component {
           direction: 'center',
           text: payload.data.username + ' is joined'
         });
-        if(!this.state.isNotYetJoin){
+        if(!this.state.username.length){
           this.setState({
             username: payload.data.username,
-            isNotYetJoin:true
           });
         }
 
