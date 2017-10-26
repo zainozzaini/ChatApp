@@ -65,6 +65,7 @@ export default class ChatView extends Component {
                     }
                 };
     this.socket.emit(socketNamespace,{data:data});
+    this.socket.destroy();
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
