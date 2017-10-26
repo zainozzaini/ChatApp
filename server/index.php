@@ -21,6 +21,7 @@
   	$statusCode = 200;
 
   	switch ($params['type']) {
+
   		case 'server/join':
   		case 'server/leave':
   			$params['data']['username'] = $users[$paramToken];

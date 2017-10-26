@@ -46,6 +46,7 @@ const responseToClient = (socket,statusCode,responseWhook,callback) => {
       socket.leave(responseWhook.data.roomId);
       break;
     case 'server/comment':
+      console.log(responseWhook);
       callback({messageId:responseWhook.data.message.id});
       socket.to(responseWhook.data.roomId).emit('action',{type:'server/comment',message:responseWhook.data.message});
       break;
