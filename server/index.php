@@ -8,7 +8,7 @@
   ];
   $tokens = array_keys($users);
 
-  $statusCode = 404;
+  $statusCode = 401;
   /*
 	do anything here about credentials, updating database etc.
   */
