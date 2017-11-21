@@ -33,7 +33,7 @@ function shutdown(signal) {
 const responseToClient = (socket,statusCode,responseWhook,callback) => {
   console.log('webhook response - ',responseWhook.type,statusCode);
   
-  if(statusCode === 404){
+  if(statusCode === 401){
     console.log('unauthorized');
     socket.emit('action',{type:'server/unauthorized'});
     if(responseWhook.data && io.sockets.adapter.sids[socket.id][responseWhook.data.roomId]){
@@ -46,7 +46,7 @@ const responseToClient = (socket,statusCode,responseWhook,callback) => {
   }
 
   if(statusCode !== 200){
-    //do for else 200 and 404 here
+    //do for else 200 and 401 here
     return;
   }
   //this section for status code 200 only
